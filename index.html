@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever with You</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --rose-pink: #E75480;
+    --blush: #F5B5D4;
+    --lavender: #D4A5D4;
+    --cream: #FFF9F5;
+    --gold: #D4AF37;
+    --dark-purple: #6B4E71;
+}
+body {
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(180deg, #FFF5F0 0%, #F5E6F0 100%);
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+    color:var(--dark-purple);
+}
+
+/* Animated Flower Garden Background */
+.flower-garden{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.flower-bloom{position:absolute;font-size:60px;filter:drop-shadow(0 4px 8px rgba(107,78,113,0.1));}
+.bloom-1{top:15%;left:8%;animation:sway 4s ease-in-out infinite;}
+.bloom-2{top:20%;right:10%;animation:sway 5s ease-in-out infinite;animation-delay:1s;}
+.bloom-3{bottom:20%;left:5%;animation:sway 4.5s ease-in-out infinite;animation-delay:0.5s;}
+.bloom-4{bottom:30%;right:8%;animation:sway 5.5s ease-in-out infinite;animation-delay:1.5s;}
+.bloom-5{top:50%;left:2%;animation:sway 4.2s ease-in-out infinite;animation-delay:0.8s;}
+.bloom-6{top:60%;right:3%;animation:sway 5.8s ease-in-out infinite;animation-delay:1.2s;}
+@keyframes sway{0%,100%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(20px) rotate(5deg);}}
+
+.particle{position:absolute;font-size:30px;opacity:0.4;animation:twinkle 3s ease-in-out infinite;}
+.particle-1{top:30%;left:15%;animation-delay:0s;}
+.particle-2{top:70%;left:80%;animation-delay:0.5s;}
+.particle-3{top:45%;right:12%;animation-delay:1s;}
+@keyframes twinkle{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:0.7;transform:scale(1.2);}}
+
+.container{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 40px;}
+.header{text-align:center;margin-bottom:50px;animation:fadeInDown 1s ease-out;}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}}
+.header h1{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:var(--rose-pink);margin-bottom:15px;letter-spacing:2px;}
+.header-subtitle{font-size:18px;color:var(--dark-purple);font-weight:300;letter-spacing:1px;}
+.main-image-container{margin:40px 0;animation:fadeInUp 1.5s ease-out 0.3s both;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.image-frame{width:320px;height:320px;margin:0 auto;position:relative;perspective:1000px;}
+.image-wrapper{width:100%;height:100%;position:relative;border-radius:20px;overflow:hidden;background:var(--cream);box-shadow:0 30px 80px rgba(231,84,128,0.25);border:3px solid var(--blush);transform:rotateY(0deg);transition: transform 0.6s ease;}
+.image-wrapper:hover{transform:rotateY(5deg);}
+.image-wrapper img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.flower-decoration{position:absolute;font-size:40px;opacity:0.7;}
+.flower-decoration.top-left{top:-20px;left:-20px;animation:bounce 2s ease-in-out infinite;}
+.flower-decoration.top-right{top:-20px;right:-20px;animation:bounce 2.2s ease-in-out infinite;animation-delay:0.3s;}
+.flower-decoration.bottom-left{bottom:-20px;left:-20px;animation:bounce 2.4s ease-in-out infinite;animation-delay:0.6s;}
+.flower-decoration.bottom-right{bottom:-20px;right:-20px;animation:bounce 2.1s ease-in-out infinite;animation-delay:0.2s;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+
+.content-section{max-width:700px;text-align:center;margin-top:50px;animation:fadeInUp 1.5s ease-out 0.6s both;}
+.content-section h2{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--rose-pink);margin-bottom:25px;font-weight:600;}
+.typewriter-text{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--dark-purple);min-height:50px;margin-bottom:30px;font-weight:300;line-height:1.6;}
+.typewriter-text::after{content:'';animation:blink 1s infinite;}
+@keyframes blink{0%,50%{content:'|';color:var(--rose-pink);}51%,100%{content:'';}}
+.description-text{font-size:16px;color:var(--dark-purple);line-height:1.8;margin:25px 0;opacity:0;animation:fadeInUp 1s ease-out 3s forwards;}
+
+.gallery-section{margin-top:60px;animation:fadeInUp 1.5s ease-out 0.9s both;}
+.gallery-section h3{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--rose-pink);text-align:center;margin-bottom:40px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;max-width:600px;margin:0 auto;}
+.gallery-item{aspect-ratio:1;border-radius:15px;overflow:hidden;background:var(--blush);cursor:pointer;transition:all 0.3s ease;box-shadow:0 15px 40px rgba(231,84,128,0.15);border:2px solid var(--blush);}
+.gallery-item:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 25px 60px rgba(231,84,128,0.3);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+
+.button-group{display:flex;gap:20px;justify-content:center;margin-top:50px;animation:fadeInUp 1.5s ease-out 1.2s both;flex-wrap:wrap;}
+.btn{padding:14px 35px;border:none;border-radius:50px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s ease;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-block;}
+.btn-primary{background:linear-gradient(135deg,var(--rose-pink) 0%,#D1356B 100%);color:white;box-shadow:0 12px 35px rgba(231,84,128,0.3);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(231,84,128,0.4);}
+.btn-secondary{background:var(--cream);color:var(--rose-pink);border:2px solid var(--rose-pink);box-shadow:0 8px 25px rgba(231,84,128,0.15);}
+.btn-secondary:hover{background:var(--blush);transform:translateY(-3px);}
+
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:center;padding:20px;animation:fadeIn 0.3s ease;}
+.modal.show{display:flex;}
+.modal-content{background:var(--cream);border-radius:25px;padding:50px;max-width:500px;width:100%;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,0.3);animation:modalSlideIn 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);}
+.modal-content h2{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--rose-pink);margin-bottom:20px;}
+.modal-content p{font-size:16px;color:var(--dark-purple);line-height:1.8;margin-bottom:30px;}
+.close-btn{position:absolute;top:20px;right:20px;font-size:28px;cursor:pointer;color:var(--rose-pink);transition:all 0.3s ease;}
+.close-btn:hover{transform:rotate(90deg);}
+
+.music-control{position:fixed;bottom:30px;right:30px;z-index:100;background:var(--cream);border-radius:50%;width:65px;height:65px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 40px rgba(231,84,128,0.3);border:3px solid var(--rose-pink);transition:all 0.3s ease;}
+.music-control:hover{transform:scale(1.15);box-shadow:0 18px 50px rgba(231,84,128,0.4);}
+.music-control.playing{animation:musicPulse 1.5s infinite;}
+@keyframes musicPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.music-icon{font-size:28px;}
+</style>
+</head>
+<body>
+
+<!-- Flower Garden -->
+<div class="flower-garden">
+    <div class="flower-bloom bloom-1">🌹</div>
+    <div class="flower-bloom bloom-2">🌷</div>
+    <div class="flower-bloom bloom-3">🌺</div>
+    <div class="flower-bloom bloom-4">🌻</div>
+    <div class="flower-bloom bloom-5">💐</div>
+    <div class="flower-bloom bloom-6">🌸</div>
+    <div class="particle particle-1">✨</div>
+    <div class="particle particle-2">✨</div>
+    <div class="particle particle-3">✨</div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="header">
+        <h1>Forever with You</h1>
+        <p class="header-subtitle">A Collection of Love & Memories</p>
+    </div>
+
+    <div class="main-image-container">
+        <div class="image-frame">
+            <div class="image-wrapper">
+                <img src="pic1.jpg" alt="My Love">
+            </div>
+            <div class="flower-decoration top-left">🌸</div>
+            <div class="flower-decoration top-right">🌷</div>
+            <div class="flower-decoration bottom-left">🌹</div>
+            <div class="flower-decoration bottom-right">💐</div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>My Heart Beats for You</h2>
+        <div class="typewriter-text" id="typewriterText"></div>
+        <p class="description-text" id="descriptionText"></p>
+    </div>
+
+    <div class="gallery-section">
+        <h3>Our Beautiful Moments 💕</h3>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="pic1.jpg" alt="Our Moment 1"></div>
+            <div class="gallery-item"><img src="pic2.jpg" alt="Our Moment 2"></div>
+            <div class="gallery-item"><img src="pic3.jpg" alt="Our Moment 3"></div>
+            <div class="gallery-item"><img src="pic4.jpg" alt="Our Moment 4"></div>
+            <div class="gallery-item"><img src="pic5.jpg" alt="Our Moment 5"></div>
+            <div class="gallery-item"><img src="pic6.jpg" alt="Our Moment 6"></div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="btn btn-primary" id="surpriseBtn">💝 Special Surprise</button>
+    </div>
+</div>
+
+<!-- Surprise Modal -->
+<div class="modal" id="surpriseModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSurprise()">&times;</span>
+        <h2>✨ You Mean Everything ✨</h2>
+        <p id="surpriseText"></p>
+        <div style="font-size:48px;margin:20px 0;">❤️ 💕 ❤️</div>
+        <button class="btn btn-primary" onclick="closeSurprise()">Close</button>
+    </div>
+</div>
+
+<!-- Music Control -->
+<div class="music-control" id="musicControl">
+    <span class="music-icon">🎵</span>
+</div>
+
+<!-- YouTube Music -->
+<iframe id="youtubeMusic"
+    width="0"
+    height="0"
+    src="https://youtu.be/SEjdux-z_bE?si=DPNA08Qhr1qRj0tu"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+</iframe>
+
+<script>
+// Messages
+const typewriterMessage = "From the moment you came into my life, everything changed for the better. Your smile lights up my darkest days, your laughter feels like music to my soul, and your love fills every part of me I didn’t even know needed filling.";
+const descriptionMessage = "I don’t just love you—I cherish every little thing about you, every moment we share, and every dream we create together.";
+const surpriseMessage = "You are my heart, my home, and my forever, and I promise to make you feel as special and loved as you make me feel every single day.💕";
+
+// Typewriter
+function typeWriter(element, text, speed=40){
+    let i=0;
+    element.textContent='';
+    function type(){
+        if(i<text.length){element.textContent+=text.charAt(i);i++;setTimeout(type,speed);}
+    }
+    setTimeout(type,800);
+}
+
+// Init
+window.addEventListener('load',function(){
+    typeWriter(document.getElementById('typewriterText'),typewriterMessage);
+    document.getElementById('descriptionText').textContent=descriptionMessage;
+    document.getElementById('surpriseText').textContent=surpriseMessage;
+});
+
+// Surprise modal
+document.getElementById('surpriseBtn').addEventListener('click',function(){
+    document.getElementById('surpriseModal').classList.add('show');
+    createHeartRain();
+});
+function closeSurprise(){document.getElementById('surpriseModal').classList.remove('show');}
+window.addEventListener('click',function(event){
+    const modal=document.getElementById('surpriseModal');
+    if(event.target===modal){closeSurprise();}
+});
+
+// Gallery scroll
+document.getElementById('galleryBtn').addEventListener('click',function(){
+    document.querySelector('.gallery-section').scrollIntoView({behavior:'smooth'});
+});
+
+// YouTube Music Control
+document.getElementById('surpriseBtn').addEventListener('click', function () {
+    document.getElementById('surpriseModal').classList.add('show');
+    createHeartRain();
+
+    // Play music here
+    iframe.src = "https://www.youtube.com/embed/SEjdux-z_bE?autoplay=1&loop=1&playlist=SEjdux-z_bE&controls=0";
+    musicControl.classList.add('playing');
+    isPlaying = true;
+});
+
+// Heart Rain
+function createHeartRain(){
+    for(let i=0;i<20;i++){
+        setTimeout(()=>{
+            const heart=document.createElement('div');
+            heart.style.position='fixed';
+            heart.style.left=Math.random()*100+'%';
+            heart.style.top='-30px';
+            heart.style.fontSize=(Math.random()*30+30)+'px';
+            heart.style.pointerEvents='none';
+            heart.style.zIndex='999';
+            heart.textContent='❤️';
+            document.body.appendChild(heart);
+            let top=-30;
+            const speed=Math.random()*3+2;
+            const fall=setInterval(()=>{
+                top+=speed;
+                heart.style.top=top+'px';
+                heart.style.opacity=1-(top/window.innerHeight);
+                if(top>window.innerHeight){clearInterval(fall);heart.remove();}
+            },20);
+        },i*200);
+    }
+}
+</script>
+</body>
+</html>
